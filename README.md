@@ -31,6 +31,13 @@ This marketplace provides Goose skills for enhancing development workflows, code
 - **git-workflow-best-practices** - Commit message conventions and branching strategies
 - **spring-boot-best-practices** - Framework-specific patterns and conventions for Spring Boot
 
+### Cloud Foundry & Integration
+
+- **cf-space-auditor** - Audit Cloud Foundry spaces for compliance with memory allocation standards, instance counts, and deployment staleness
+- **mailgun** - Send emails via Mailgun API with context-aware subject and body generation
+- **google-chat-poster** - Post messages to Google Chat Spaces using the Google Chat API
+- **topical-limerick** - Write entertaining limericks that blend requested topics with current news and events
+
 ## 🚀 Quick Start
 
 ### Using Skills in Your Goose Configuration
