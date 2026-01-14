@@ -1,4 +1,4 @@
-# Goose Skills Marketplace
+# Tanzu Skills Marketplace
 
 A centralized repository for reusable Goose AI agent skills. This marketplace provides curated, production-ready skills that enhance Goose's capabilities across various development domains.
 
@@ -48,17 +48,17 @@ Add skills from this repository to your `.goose-config.yml`:
 skills:
   # Reference skills from this Git repository
   - name: code-review
-    source: https://github.com/your-org/goose-skills-marketplace.git
+    source: https://github.com/your-org/tanzu-skills-marketplace.git
     branch: main
     path: skills/code-review
 
   - name: testing-strategies
-    source: https://github.com/your-org/goose-skills-marketplace.git
+    source: https://github.com/your-org/tanzu-skills-marketplace.git
     branch: main
     path: skills/testing-strategies
 
   - name: spring-boot-best-practices
-    source: https://github.com/your-org/goose-skills-marketplace.git
+    source: https://github.com/your-org/tanzu-skills-marketplace.git
     branch: main
     path: skills/spring-boot-best-practices
 ```
@@ -70,11 +70,11 @@ To use all skills from this marketplace, add them individually or use a script t
 ```yaml
 skills:
   - name: code-review
-    source: https://github.com/your-org/goose-skills-marketplace.git
+    source: https://github.com/your-org/tanzu-skills-marketplace.git
     branch: main
     path: skills/code-review
   - name: testing-strategies
-    source: https://github.com/your-org/goose-skills-marketplace.git
+    source: https://github.com/your-org/tanzu-skills-marketplace.git
     branch: main
     path: skills/testing-strategies
   # ... add all skills
