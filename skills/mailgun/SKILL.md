@@ -5,6 +5,9 @@ description: Send HTML emails via Mailgun API. Use when the user requests to sen
 
 # Mailgun Email Sender
 
+> **IMPORTANT**: Always execute this skill by running `python3 scripts/send_email.py` using the **`shell` tool**.
+> Do **NOT** use the `delegate` tool for this skill — it will cause long timeouts.
+
 Send HTML emails through the Mailgun API with context-aware subject and body generation. All emails are sent as HTML for rich formatting support.
 
 ## Configuration
@@ -20,11 +23,11 @@ When the user requests sending an email:
 
 1. **Identify recipients**: Extract email addresses from the request
 2. **Generate content**: Create an appropriate subject line and email body based on context
-3. **Execute script**: Use `scripts/send_email.py` to send the email
+3. **Execute via shell**: Run `python3 scripts/send_email.py` using the `shell` tool (never `delegate`)
 
 ## Script Usage
 
-The bundled `send_email.py` script handles all Mailgun API communication and sends HTML emails:
+Always invoke via the `shell` tool:
 
 ```bash
 python3 scripts/send_email.py <recipients> <subject> <html_body>
@@ -95,7 +98,6 @@ Tanzu Agent</p>
 - Keep concise (under 60 characters)
 - Make purpose immediately clear
 - Professional but friendly tone
-- Examples: "Meeting Reminder: Q4 Planning", "Update: Deployment Status"
 
 **HTML Email Body:**
 - Always wrap content in `<html>...<body>...</body></html>` tags
@@ -103,11 +105,8 @@ Tanzu Agent</p>
 - Use `<strong>` for bold and `<em>` for italic text
 - Use `<ul>` and `<li>` for bullet lists, `<ol>` for numbered lists
 - Use `<br>` for line breaks within paragraphs
-- Use `<a href="...">` for hyperlinks
 - Escape special characters (e.g., `&amp;` for &)
 - Start with appropriate greeting
-- State purpose clearly upfront
-- Include relevant context from the user's request
 - Close professionally
 
 ## Notes
