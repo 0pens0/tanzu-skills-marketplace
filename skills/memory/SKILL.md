@@ -20,32 +20,29 @@ This skill lets you actively manage long-term memory across sessions.
 ## API Endpoints
 
 The memory API is hosted on the same app at `/api/memory/facts`.
+Authentication uses the `MEMORY_TOKEN` environment variable (automatically set per session).
 
 ### Save a fact
-
-```
-POST /api/memory/facts
-Content-Type: application/json
-
-{ "key": "user_role", "value": "Platform Engineer at Tanzu" }
-```
-
-Use the `shell` tool:
 
 ```bash
 curl -s -X POST http://localhost:8080/api/memory/facts \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $MEMORY_TOKEN" \
   -d '{"key": "user_role", "value": "Platform Engineer at Tanzu"}'
 ```
 
 ### Recall all facts for the current user
 
-```
-GET /api/memory/facts
+```bash
+curl -s http://localhost:8080/api/memory/facts \
+  -H "Authorization: Bearer $MEMORY_TOKEN"
 ```
 
+### Delete a fact
+
 ```bash
-curl -s http://localhost:8080/api/memory/facts
+curl -s -X DELETE http://localhost:8080/api/memory/facts/user_name \
+  -H "Authorization: Bearer $MEMORY_TOKEN"
 ```
 
 ---
@@ -64,7 +61,8 @@ curl -s http://localhost:8080/api/memory/facts
 
 ```bash
 # Silently run at the start of every session
-curl -s http://localhost:8080/api/memory/facts
+curl -s http://localhost:8080/api/memory/facts \
+  -H "Authorization: Bearer $MEMORY_TOKEN"
 ```
 
 If the response contains facts, use them naturally. For example, if `user_name = Oren`, greet the user by name without explaining where you got it.
@@ -80,6 +78,7 @@ Immediately run:
 ```bash
 curl -s -X POST http://localhost:8080/api/memory/facts \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $MEMORY_TOKEN" \
   -d '{"key": "user_role", "value": "platform lead at Penso Engineering"}'
 ```
 
